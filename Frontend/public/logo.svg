@@ -1,0 +1,119 @@
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0066ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004cff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="120" fill="#f8fafc" rx="8"/>
+  
+  <!-- Pulse Icon Container -->
+  <g transform="translate(20, 20)">
+    <!-- Icon Background Circle -->
+    <circle cx="40" cy="40" r="35" fill="url(#pulseGradient)" opacity="0.1"/>
+    <circle cx="40" cy="40" r="30" fill="none" stroke="url(#pulseGradient)" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Pulse Wave n-->
+    <path d="M 10 40 L 20 40 L 25 25 L 30 55 L 35 15 L 40 65 L 45 30 L 50 50 L 55 40 L 70 40" 
+          fill="none" 
+          stroke="url(#pulseGradient)" 
+          stroke-width="3" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          filter="url(#glow)">
+      <animate attributeName="stroke-dasharray" 
+               values="0,200;100,100;0,200" 
+               dur="2s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Pulse Dots -->
+    <circle cx="40" cy="40" r="4" fill="url(#dotGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Additional pulse indicators -->
+    <circle cx="25" cy="25" r="2" fill="url(#dotGradient)" opacity="0.6">
+      <animate attributeName="r" values="2;3;2" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="55" cy="50" r="2" fill="url(#dotGradient)" opacity="0.6">
+      <animate attributeName="r" values="2;3;2" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Text -->
+  <g transform="translate(100, 35)">
+    <!-- Main Text -->
+    <text x="0" y="30" 
+          font-family="Arial, Helvetica, sans-serif" 
+          font-size="36" 
+          font-weight="700" 
+          fill="url(#textGradient)"
+          filter="url(#shadow)">
+      PulsePoint
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="55" 
+          font-family="Arial, Helvetica, sans-serif" 
+          font-size="12" 
+          font-weight="400" 
+          fill="#64748b"
+          letter-spacing="1px">
+      SMART CONNECTIVITY
+    </text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g opacity="0.3">
+    <!-- Connection lines -->
+    <line x1="320" y1="30" x2="350" y2="30" stroke="url(#pulseGradient)" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="x2" values="350;370;350" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="320" y1="50" x2="360" y2="50" stroke="url(#pulseGradient)" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="x2" values="360;380;360" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="320" y1="70" x2="340" y2="70" stroke="url(#pulseGradient)" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="x2" values="340;365;340" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- End dots -->
+    <circle cx="350" cy="30" r="3" fill="url(#dotGradient)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="360" cy="50" r="3" fill="url(#dotGradient)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="340" cy="70" r="3" fill="url(#dotGradient)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
