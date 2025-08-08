@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="text-center text-xs text-gray-400 mt-4">
           © {new Date().getFullYear()} Bryano Studio. All rights reserved.
         </div>
-        {/* n */}
+        {/* n h*/}
       </footer>
     );
   }
